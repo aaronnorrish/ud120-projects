@@ -24,8 +24,8 @@ from sklearn.metrics import accuracy_score
 
 clf = svm.SVC(kernel="rbf", C=10000.0)
 
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+# features_train = features_train[:len(features_train)/100]
+# labels_train = labels_train[:len(labels_train)/100]
 
 t0 = time()
 clf.fit(features_train, labels_train)
@@ -34,4 +34,5 @@ t0 = time()
 predicted = clf.predict(features_test)
 print "predicting time:", round(time()-t0, 3), "s"
 print "accuracy of support vector machine:", accuracy_score(labels_test, predicted)
-print predicted[10], predicted[26], predicted[50]
+import numpy
+print numpy.count_nonzero(predicted == 1)
