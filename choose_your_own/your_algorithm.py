@@ -24,19 +24,18 @@ plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
 plt.legend()
 plt.xlabel("bumpiness")
 plt.ylabel("grade")
-plt.show()
+# plt.show()
 ################################################################################
 
+from sklearn.datasets import load_iris
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.model_selection import cross_val_score
+from sklearn.metrics import accuracy_score
 
-### your code here!  name your classifier object clf if you want the 
-### visualization code (prettyPicture) to show you the decision boundary
-
-
-
-
-
-
-
+clf = AdaBoostClassifier(n_estimators = 20, learning_rate = 2)
+clf = clf.fit(features_train, labels_train)
+predicted = clf.predict(features_test)
+print "accuracy of adaboost:", accuracy_score(labels_test, predicted)
 
 try:
     prettyPicture(clf, features_test, labels_test)
