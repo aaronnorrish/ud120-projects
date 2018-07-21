@@ -18,8 +18,10 @@
 import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
-count = 0
+salary, email = 0, 0
 for key in enron_data:
-    if enron_data[key]["poi"] == 1:
-        count += 1
-print count
+    if enron_data[key]['salary'] != 'NaN':
+        salary += 1
+    if enron_data[key]['email_address'] != 'NaN':
+        email += 1
+print salary, email
