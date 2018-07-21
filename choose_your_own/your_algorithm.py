@@ -27,9 +27,7 @@ plt.ylabel("grade")
 # plt.show()
 ################################################################################
 
-from sklearn.datasets import load_iris
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score
 
 clf = AdaBoostClassifier(n_estimators = 20, learning_rate = 2)
