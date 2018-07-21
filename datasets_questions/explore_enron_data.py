@@ -18,8 +18,10 @@
 import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
-payment_count = 0
+payment_count, pois = 0, 0
 for key in enron_data:
-    if enron_data[key]['total_payments'] == 'NaN':
-        payment_count += 1
-print payment_count, float(payment_count)/len(enron_data)
+    if enron_data[key]["poi"] == 1:
+        pois += 1
+        if enron_data[key]['total_payments'] == 'NaN':
+            payment_count += 1
+print payment_count, float(payment_count)/pois
