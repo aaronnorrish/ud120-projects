@@ -35,7 +35,7 @@ from sklearn import linear_model
 reg = linear_model.LinearRegression()
 reg.fit(feature_train, target_train)
 
-print reg.score(feature_train, target_train)
+print reg.score(feature_test, target_test)
 
 
 
