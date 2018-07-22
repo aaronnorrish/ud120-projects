@@ -35,7 +35,9 @@ from sklearn import linear_model
 reg = linear_model.LinearRegression()
 reg.fit(feature_train, target_train)
 
-print reg.coef_, reg.intercept_
+print reg.score(feature_train, target_train)
+
+
 
 ### draw the scatterplot, with color-coded training and testing points
 import matplotlib.pyplot as plt
