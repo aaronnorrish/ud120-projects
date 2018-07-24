@@ -70,6 +70,12 @@ k_means_model = cluster.KMeans(n_clusters = 2)
 k_means_model.fit(finance_features)
 pred = k_means_model.predict(finance_features)
 
+min, max = data_dict["SKILLING JEFFREY K"]["exercised_stock_options"], data_dict["SKILLING JEFFREY K"]["exercised_stock_options"]
+for key in data_dict:
+    if data_dict[key]["exercised_stock_options"] != 'NaN':
+        min = data_dict[key]["exercised_stock_options"] if data_dict[key]["exercised_stock_options"] < min else min
+        max = data_dict[key]["exercised_stock_options"] if data_dict[key]["exercised_stock_options"] > max else max
+print "min:", min, "max:", max
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
