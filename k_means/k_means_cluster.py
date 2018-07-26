@@ -63,19 +63,28 @@ for f1, f2, f3 in finance_features:
     plt.scatter( f1, f2, f3 )
 plt.show()
 
+## rescale features manually
+salary = []
+stock_options = []
+for pos in range(len(finance_features)):
+    salary.append(finance_features[pos][0])
+    stock_options.append(finance_features[pos][1])
+max_salary = max(salary)
+min_salary = min(salary)
+max_stock = max(stock_options)
+min_stock = min(stock_options)
+for pos in range(len(salary)):
+    salary[pos] = (salary[pos] - min_salary)/(max_salary - min_salary)
+    stock_options[pos] = (stock_options[pos] - min_stock)/(max_stock - min_stock)
+print "rescaled salary:", (200000.0 - min_salary)/(max_salary - min_salary)
+print "rescaled stock option:",(1000000.0 - min_stock)/(max_stock - min_stock)
+
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
-from sklearn import cluster
-k_means_model = cluster.KMeans(n_clusters = 2)
-k_means_model.fit(finance_features)
-pred = k_means_model.predict(finance_features)
-
-min, max = data_dict["SKILLING JEFFREY K"]["salary"], data_dict["SKILLING JEFFREY K"]["salary"]
-for key in data_dict:
-    if data_dict[key]["salary"] != 'NaN':
-        min = data_dict[key]["salary"] if data_dict[key]["salary"] < min else min
-        max = data_dict[key]["salary"] if data_dict[key]["salary"] > max else max
-print "min:", min, "max:", max
+# from sklearn import cluster
+# k_means_model = cluster.KMeans(n_clusters = 2)
+# k_means_model.fit(finance_features)
+# pred = k_means_model.predict(finance_features)
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
