@@ -79,4 +79,5 @@ pickle.dump( from_data, open("your_email_authors.pkl", "w") )
 from sklearn.feature_extraction.text import TfidfVectorizer
 vectoriser = TfidfVectorizer(stop_words='english')
 X = vectoriser.fit_transform(word_data)
-print len(vectoriser.get_feature_names())
+# print len(vectoriser.get_feature_names())
+print vectoriser.get_feature_names()[34597]
