@@ -48,6 +48,8 @@ clf = clf.fit(features_train, labels_train)
 predicted = clf.predict(features_test)
 # print "accuracy of decision tree:", accuracy_score(labels_test, predicted)
 
-for i in range(len(clf.feature_importances_)):
-    if clf.feature_importances_[i] > 0.2:
-        print i, clf.feature_importances_[i]
+# for i in range(len(clf.feature_importances_)):
+#     if clf.feature_importances_[i] > 0.2:
+#         print i, clf.feature_importances_[i]
+
+print vectorizer.get_feature_names()[33614]
