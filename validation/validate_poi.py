@@ -22,11 +22,14 @@ data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "r") 
 ### have a different feature list when you do the final project.
 features_list = ["poi", "salary"]
 
-data = featureFormat(data_dict, features_list)
+data = featureFormat(data_dict, features_list, sort_keys = '../tools/python2_lesson13_keys.pkl')
 labels, features = targetFeatureSplit(data)
 
+### it's all yours from here forward!
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
 
-
-### it's all yours from here forward!  
-
-
+clf = DecisionTreeClassifier()
+clf = clf.fit(features, labels)
+predicted = clf.predict(features)
+print "accuracy :", accuracy_score(labels, predicted)
