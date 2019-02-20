@@ -31,15 +31,14 @@ from sklearn import cross_validation
 features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(features, labels, test_size=0.3, random_state=42)
 
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, recall_score, precision_score
 
 clf = DecisionTreeClassifier()
 clf = clf.fit(features_train, labels_train)
 predicted = clf.predict(features_test)
 
-for i in range(len(labels_test)):
-    if labels_test[i] == 1.0 and predicted[i] == 1.:
-        print i
+# for i in range(len(labels_test)):
+#     if labels_test[i] == 1.0 and predicted[i] == 1.:
+#         print i
 
-
-# print "accuracy :", accuracy_score(labels_test, predicted)
+print "precision :", precision_score(labels_test, predicted)
