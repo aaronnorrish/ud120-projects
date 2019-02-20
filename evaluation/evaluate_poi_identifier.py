@@ -33,7 +33,9 @@ features_train, features_test, labels_train, labels_test = cross_validation.trai
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
-print labels_test.count(1.0)
+print len(labels_test)
+
+
 # clf = DecisionTreeClassifier()
 # clf = clf.fit(features_train, labels_train)
 # predicted = clf.predict(features_test)
